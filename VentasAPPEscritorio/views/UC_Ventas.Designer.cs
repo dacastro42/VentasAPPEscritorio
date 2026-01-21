@@ -28,48 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            txtNombre1 = new TextBox();
-            button1 = new Button();
+            btnAgregar = new Button();
             dgvCarros = new DataGridView();
             dgvCarrito = new DataGridView();
             label2 = new Label();
             label3 = new Label();
-            button2 = new Button();
-            button3 = new Button();
+            btnQuitar = new Button();
+            btnConfirmarVenta = new Button();
             lblSubtotal = new Label();
             lblTotal = new Label();
+            label1 = new Label();
+            label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvCarros).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvCarrito).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // btnAgregar
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Century Gothic", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(414, 65);
-            label1.Name = "label1";
-            label1.Size = new Size(23, 30);
-            label1.TabIndex = 8;
-            label1.Text = "*";
-            // 
-            // txtNombre1
-            // 
-            txtNombre1.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtNombre1.Location = new Point(188, 64);
-            txtNombre1.Name = "txtNombre1";
-            txtNombre1.Size = new Size(220, 31);
-            txtNombre1.TabIndex = 7;
-            txtNombre1.Text = "Nombre 1";
-            // 
-            // button1
-            // 
-            button1.Location = new Point(574, 35);
-            button1.Name = "button1";
-            button1.Size = new Size(128, 36);
-            button1.TabIndex = 6;
-            button1.Text = "Agregar";
-            button1.UseVisualStyleBackColor = true;
+            btnAgregar.Location = new Point(574, 35);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(128, 36);
+            btnAgregar.TabIndex = 6;
+            btnAgregar.Text = "Agregar";
+            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // dgvCarros
             // 
@@ -107,23 +89,25 @@
             label3.TabIndex = 12;
             label3.Text = "Carros agregados";
             // 
-            // button2
+            // btnQuitar
             // 
-            button2.Location = new Point(574, 86);
-            button2.Name = "button2";
-            button2.Size = new Size(128, 36);
-            button2.TabIndex = 13;
-            button2.Text = "Quitar";
-            button2.UseVisualStyleBackColor = true;
+            btnQuitar.Location = new Point(574, 86);
+            btnQuitar.Name = "btnQuitar";
+            btnQuitar.Size = new Size(128, 36);
+            btnQuitar.TabIndex = 13;
+            btnQuitar.Text = "Quitar";
+            btnQuitar.UseVisualStyleBackColor = true;
+            btnQuitar.Click += btnQuitar_Click;
             // 
-            // button3
+            // btnConfirmarVenta
             // 
-            button3.Location = new Point(574, 128);
-            button3.Name = "button3";
-            button3.Size = new Size(128, 36);
-            button3.TabIndex = 14;
-            button3.Text = "Confirmar Venta";
-            button3.UseVisualStyleBackColor = true;
+            btnConfirmarVenta.Location = new Point(574, 128);
+            btnConfirmarVenta.Name = "btnConfirmarVenta";
+            btnConfirmarVenta.Size = new Size(128, 36);
+            btnConfirmarVenta.TabIndex = 14;
+            btnConfirmarVenta.Text = "Confirmar Venta";
+            btnConfirmarVenta.UseVisualStyleBackColor = true;
+            btnConfirmarVenta.Click += btnConfirmarVenta_Click;
             // 
             // lblSubtotal
             // 
@@ -145,24 +129,45 @@
             lblTotal.TabIndex = 16;
             lblTotal.Text = "Total";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(91, 113);
+            label1.Name = "label1";
+            label1.Size = new Size(91, 22);
+            label1.TabIndex = 17;
+            label1.Text = "Sub total";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(91, 153);
+            label4.Name = "label4";
+            label4.Size = new Size(53, 22);
+            label4.TabIndex = 18;
+            label4.Text = "Total";
+            // 
             // UC_Ventas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(862, 450);
+            Controls.Add(label4);
+            Controls.Add(label1);
             Controls.Add(lblTotal);
             Controls.Add(lblSubtotal);
-            Controls.Add(button3);
-            Controls.Add(button2);
+            Controls.Add(btnConfirmarVenta);
+            Controls.Add(btnQuitar);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(dgvCarrito);
             Controls.Add(dgvCarros);
-            Controls.Add(label1);
-            Controls.Add(txtNombre1);
-            Controls.Add(button1);
+            Controls.Add(btnAgregar);
             Name = "UC_Ventas";
             Text = "UC_Ventas";
+            Load += LoadV;
             ((System.ComponentModel.ISupportInitialize)dgvCarros).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvCarrito).EndInit();
             ResumeLayout(false);
@@ -170,17 +175,16 @@
         }
 
         #endregion
-
-        private Label label1;
-        private TextBox txtNombre1;
-        private Button button1;
+        private Button btnAgregar;
         private DataGridView dgvCarros;
         private DataGridView dgvCarrito;
         private Label label2;
         private Label label3;
-        private Button button2;
-        private Button button3;
+        private Button btnQuitar;
+        private Button btnConfirmarVenta;
         private Label lblSubtotal;
         private Label lblTotal;
+        private Label label1;
+        private Label label4;
     }
 }
