@@ -45,9 +45,10 @@
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(574, 35);
+            btnAgregar.Font = new Font("Century Gothic", 12F);
+            btnAgregar.Location = new Point(451, 46);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(128, 36);
+            btnAgregar.Size = new Size(140, 54);
             btnAgregar.TabIndex = 6;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
@@ -91,9 +92,10 @@
             // 
             // btnQuitar
             // 
-            btnQuitar.Location = new Point(574, 86);
+            btnQuitar.Font = new Font("Century Gothic", 12F);
+            btnQuitar.Location = new Point(651, 46);
             btnQuitar.Name = "btnQuitar";
-            btnQuitar.Size = new Size(128, 36);
+            btnQuitar.Size = new Size(140, 52);
             btnQuitar.TabIndex = 13;
             btnQuitar.Text = "Quitar";
             btnQuitar.UseVisualStyleBackColor = true;
@@ -101,9 +103,10 @@
             // 
             // btnConfirmarVenta
             // 
-            btnConfirmarVenta.Location = new Point(574, 128);
+            btnConfirmarVenta.Font = new Font("Century Gothic", 12F);
+            btnConfirmarVenta.Location = new Point(559, 120);
             btnConfirmarVenta.Name = "btnConfirmarVenta";
-            btnConfirmarVenta.Size = new Size(128, 36);
+            btnConfirmarVenta.Size = new Size(140, 55);
             btnConfirmarVenta.TabIndex = 14;
             btnConfirmarVenta.Text = "Confirmar Venta";
             btnConfirmarVenta.UseVisualStyleBackColor = true;
@@ -113,27 +116,27 @@
             // 
             lblSubtotal.AutoSize = true;
             lblSubtotal.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblSubtotal.Location = new Point(188, 113);
+            lblSubtotal.Location = new Point(264, 76);
             lblSubtotal.Name = "lblSubtotal";
-            lblSubtotal.Size = new Size(91, 22);
+            lblSubtotal.Size = new Size(43, 22);
             lblSubtotal.TabIndex = 15;
-            lblSubtotal.Text = "Sub total";
+            lblSubtotal.Text = "000";
             // 
             // lblTotal
             // 
             lblTotal.AutoSize = true;
             lblTotal.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTotal.Location = new Point(188, 153);
+            lblTotal.Location = new Point(264, 116);
             lblTotal.Name = "lblTotal";
-            lblTotal.Size = new Size(53, 22);
+            lblTotal.Size = new Size(43, 22);
             lblTotal.TabIndex = 16;
-            lblTotal.Text = "Total";
+            lblTotal.Text = "000";
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(91, 113);
+            label1.Location = new Point(124, 76);
             label1.Name = "label1";
             label1.Size = new Size(91, 22);
             label1.TabIndex = 17;
@@ -143,11 +146,11 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(91, 153);
+            label4.Location = new Point(27, 116);
             label4.Name = "label4";
-            label4.Size = new Size(53, 22);
+            label4.Size = new Size(188, 22);
             label4.TabIndex = 18;
-            label4.Text = "Total";
+            label4.Text = "Total Valor con IVA";
             // 
             // UC_Ventas
             // 

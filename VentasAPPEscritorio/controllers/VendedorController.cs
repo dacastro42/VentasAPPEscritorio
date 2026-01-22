@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using VentasAPPEscritorio.models;
+using VentasAPPEscritorio.models.DAO;
 
 namespace VentasAPPEscritorio.controllers
 {
@@ -11,7 +13,7 @@ namespace VentasAPPEscritorio.controllers
     {
         // Método para guardar el vendedor
         private ConnectionBD conexion = new ConnectionBD();
-
+        private readonly VendedorDAO dao = new VendedorDAO();
         public bool GuardarVendedor(Vendedor v)
         {
             
@@ -30,6 +32,13 @@ namespace VentasAPPEscritorio.controllers
 
             // Ejecuta la consulta a través de tu clase ConnectionBD
             return conexion.ExecuteQuery(sql);
+        }
+        public Vendedor Login(string user, string pass)
+        {
+            if (string.IsNullOrWhiteSpace(user) || string.IsNullOrWhiteSpace(pass))
+                return null;
+
+            return dao.Login(user.Trim(), pass.Trim());
         }
     }
 }

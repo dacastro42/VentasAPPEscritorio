@@ -22,12 +22,12 @@ namespace VentasAPPEscritorio.views
 
         private readonly VentaController ventaController = new VentaController();
 
-        private int vendedorQuemado = 1; //es el id del vendedor, por ahora quemado. 
-        public UC_Ventas()
+        private int idVendedorLlega = 1; //es el id del vendedor, por ahora quemado. 
+        public UC_Ventas(Vendedor vendedor)
         {
             InitializeComponent();
             this.Load += UC_Ventas_Load;
-
+            idVendedorLlega = vendedor.IdV;
             //btnAgregar.Click += btnAgregar_Click;
             //btnQuitar.Click += btnQuitar_Click;
             //btnConfirmarVenta.Click += btnConfirmarVenta_Click;
@@ -202,13 +202,7 @@ namespace VentasAPPEscritorio.views
                 RecalcularTotales();
             }
         }
-        //private void UC_Ventas_Load(object sender, EventArgs e)
-        //{
-        //    ConfigurarGrids();          // configura dgvCarros y dgvCarrito
-        //    InicializarCarritoGrid();   // arma columnas del carrito y binding
-        //    CargarCarros();             // carga carros disponibles
-        //    RecalcularTotales();        // deja subtotal/total en 0
-        //}
+        
         private void AjustarColumnasCarrito()
         {
             if (dgvCarrito.Columns["IdVentaDetalle"] != null) dgvCarrito.Columns["IdVentaDetalle"].Visible = false;
@@ -246,7 +240,7 @@ namespace VentasAPPEscritorio.views
                     return;
                 }
 
-                int ventaId = ventaController.ConfirmarVenta(vendedorQuemado, carrito);
+                int ventaId = ventaController.ConfirmarVenta(idVendedorLlega, carrito);
 
                 MessageBox.Show($" Venta confirmada. ID Venta: {ventaId}", "Éxito",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -261,6 +255,11 @@ namespace VentasAPPEscritorio.views
                 MessageBox.Show(" Error al confirmar venta:\n" + ex.Message, "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void dgvCarrito_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -9,6 +9,7 @@ namespace VentasAPPEscritorio.controllers
     internal class VentaController
     {
         public readonly VentaDAO ventaDAO = new VentaDAO();
+        
 
         public int ConfirmarVenta(int vendedorId, List<VentaDetalle> carrito)
         {
@@ -30,5 +31,6 @@ namespace VentasAPPEscritorio.controllers
 
             return ventaDAO.GuardarVentaConDetalles(venta, carrito);
         }
+
     }
 }
