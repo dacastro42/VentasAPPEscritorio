@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,16 +24,28 @@ namespace VentasAPPEscritorio.views
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            var vendedor = vendedorController.Login(txtMail.Text, txtPass.Text);
+            var user = vendedorController.Login(txtMail.Text, txtPass.Text);
 
-            if (vendedor == null)
+            if (user == null)
             {
                 MessageBox.Show("Usuario o contraseña incorrectos.");
                 return;
             }
 
-            var menu = new Menu(vendedor);
-            menu.Show();
+            //var menu = new Menu(user);
+            //menu.Show();
+            //this.Hide();
+            if (user.Rol.Equals("ADMIN"))
+            {
+                var menuAdmin = new MenuAdmin(user);
+                menuAdmin.Show();
+            }
+            else
+            {
+                var menuVendedor = new Menu(user);
+                menuVendedor.Show();
+            }
+
             this.Hide();
         }
     }

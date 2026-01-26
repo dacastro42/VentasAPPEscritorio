@@ -16,7 +16,7 @@ namespace VentasAPPEscritorio.models.DAO
         {
             // AJUSTA nombres reales: tabla y columnas (mail/clave)
             string sql = @"
-                SELECT IdV, nombre1V, apellido1V, emailV, passwordV
+                SELECT IdV, nombre1V, apellido1V, emailV, passwordV, rol
                 FROM vendedores
                 WHERE emailV = @mail  AND passwordV = @clave
                 LIMIT 1;
@@ -40,7 +40,8 @@ namespace VentasAPPEscritorio.models.DAO
                             Nombre1V = dr.GetString("nombre1V"),
                             Apellido1V = dr.GetString("apellido1V"),
                             EmailV = dr.GetString("emailV"),
-                            PasswordV = dr.GetString("passwordV")
+                            PasswordV = dr.GetString("passwordV"),
+                            Rol = dr.GetString("rol")
                         };
                     }
                 }

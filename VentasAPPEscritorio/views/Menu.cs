@@ -24,6 +24,7 @@ namespace VentasAPPEscritorio.views
         private void VentaBtn_Click(object sender, EventArgs e)
         {
             var frmVentas = new UC_Ventas(_vendedor);
+            //frmVentas.FormClosed += (s, args) => this.Show();
             frmVentas.Show();
             //this.Hide();
         }
