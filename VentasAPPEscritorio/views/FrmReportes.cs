@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VentasAPPEscritorio.models;
 
 namespace VentasAPPEscritorio.views
 {
@@ -18,6 +19,11 @@ namespace VentasAPPEscritorio.views
             this.Text = titulo;
             lblTitulo.Text = titulo;      // si tienes un label
             dgvReporte.DataSource = data; // si tienes un DataGridView
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            ExportadorExcel.ExportarDataGridView(dgvReporte);
         }
     }
 }

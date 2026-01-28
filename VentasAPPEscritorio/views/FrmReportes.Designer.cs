@@ -30,7 +30,11 @@
         {
             lblTitulo = new Label();
             dgvReporte = new DataGridView();
+            menuStrip1 = new MenuStrip();
+            toolStripMenuItem1 = new ToolStripMenuItem();
+            toolStripMenuItem2 = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dgvReporte).BeginInit();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // lblTitulo
@@ -51,6 +55,28 @@
             dgvReporte.Size = new Size(798, 231);
             dgvReporte.TabIndex = 20;
             // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { toolStripMenuItem2, toolStripMenuItem1 });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.TabIndex = 21;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // toolStripMenuItem1
+            // 
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Size = new Size(46, 20);
+            toolStripMenuItem1.Text = "File...";
+            // 
+            // toolStripMenuItem2
+            // 
+            toolStripMenuItem2.Name = "toolStripMenuItem2";
+            toolStripMenuItem2.Size = new Size(72, 20);
+            toolStripMenuItem2.Text = "Save Excel";
+            toolStripMenuItem2.Click += toolStripMenuItem2_Click;
+            // 
             // FrmReportes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -58,9 +84,13 @@
             ClientSize = new Size(800, 450);
             Controls.Add(dgvReporte);
             Controls.Add(lblTitulo);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
             Name = "FrmReportes";
             Text = "FrmReportes";
             ((System.ComponentModel.ISupportInitialize)dgvReporte).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -69,5 +99,8 @@
 
         private Label lblTitulo;
         private DataGridView dgvReporte;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem toolStripMenuItem1;
+        private ToolStripMenuItem toolStripMenuItem2;
     }
 }
