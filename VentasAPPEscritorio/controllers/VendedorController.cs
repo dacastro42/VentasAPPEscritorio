@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace VentasAPPEscritorio.controllers
         private readonly VendedorDAO dao = new VendedorDAO();
         public bool GuardarVendedor(Vendedor v)
         {
-            
+
             // Nota: Usamos las propiedades del modelo Vendedor
             string sql = "INSERT INTO vendedores (nombre1V, nombre2V, apellido1V, apellido2V, emailV, telefonoV, passwordV, rol, fecha_registro) " +
                          "VALUES (" +
@@ -39,6 +40,21 @@ namespace VentasAPPEscritorio.controllers
                 return null;
 
             return dao.Login(user.Trim(), pass.Trim());
+        }
+
+        public DataTable ListarVendedores()
+        {
+            string sql = @"
+        SELECT 
+            IdV,
+            CONCAT(nombre1V, ' ', apellido1V) AS Vendedor,
+            emailV,
+            rol
+        FROM vendedores
+        ORDER BY nombre1V, apellido1V;
+    ";
+
+            return conexion.ExecuteSelect(sql);
         }
     }
 }

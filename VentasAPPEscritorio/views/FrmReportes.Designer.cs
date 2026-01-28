@@ -36,10 +36,10 @@
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
-            lblTitulo.Font = new Font("Century Gothic", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitulo.Location = new Point(306, 37);
+            lblTitulo.Font = new Font("Century Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.Location = new Point(86, 28);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(163, 41);
+            lblTitulo.Size = new Size(128, 32);
             lblTitulo.TabIndex = 19;
             lblTitulo.Text = "Reportes";
             // 
