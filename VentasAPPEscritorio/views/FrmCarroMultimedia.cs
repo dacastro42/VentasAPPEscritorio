@@ -23,17 +23,20 @@ namespace VentasAPPEscritorio.views
 
         public FrmCarroMultimedia(int carroId, string nombreCarro = "")
         {
+            InitializeComponent();
+            
             Debug.WriteLine("si llego  :  " + carroId + "nombreC " + nombreCarro);
            // Console.WriteLine("si llego  :  " + carroId + "nombreC " + nombreCarro);
 
-            InitializeComponent();
+            
             _carroId = carroId;
-
+            Debug.WriteLine("si llegohhhhhhhhhhhhh :  " + _carroId);
             lblCarro.Text = string.IsNullOrWhiteSpace(nombreCarro)
                 ? $"Carro ID: {_carroId}"
                 : nombreCarro;
 
             this.Load += FrmCarroMultimedia_Load;
+            CargarListadoMultimedia();
         }
 
         private void FrmCarroMultimedia_Load(object sender, EventArgs e)
@@ -46,7 +49,7 @@ namespace VentasAPPEscritorio.views
         {
             string url = carroController.ObtenerFotoPrincipal(_carroId);
 
-            MessageBox.Show("URL desde BD:\n" + (url ?? "NULL"));
+            //MessageBox.Show("URL desde BD:\n" + (url ?? "NULL"));
 
             if (string.IsNullOrWhiteSpace(url))
             {
@@ -62,7 +65,7 @@ namespace VentasAPPEscritorio.views
             string projectRoot = Path.GetFullPath(Path.Combine(baseDir, @"..\..\..\.."));
             string rutaCompleta = Path.Combine(projectRoot, urlNorm);
 
-            MessageBox.Show("Ruta completa:\n" + rutaCompleta + "\nExiste?: " + File.Exists(rutaCompleta));
+            //MessageBox.Show("Ruta completa:\n" + rutaCompleta + "\nExiste?: " + File.Exists(rutaCompleta));
 
             if (!File.Exists(rutaCompleta))
             {
@@ -74,6 +77,16 @@ namespace VentasAPPEscritorio.views
             pbPrincipal.Image?.Dispose();
             pbPrincipal.Image = Image.FromFile(rutaCompleta);
             pbPrincipal.SizeMode = PictureBoxSizeMode.Zoom;
+        }
+
+        private void CargarListadoMultimedia()
+        {
+            MessageBox.Show("CarroId recibido: " + _carroId);
+            var dt = carroController.ListarMultimediaPorCarro(_carroId);
+            dgvMedia.DataSource = dt;
+            MessageBox.Show("Filas multimedia: " + dt.Rows.Count);
+            dgvMedia.Columns["url_recurso"].Visible = false;
+            dgvMedia.Columns["es_principal"].HeaderText = "Principal";
         }
 
         private void btnAbrirRecurso_Click(object sender, EventArgs e)

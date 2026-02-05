@@ -49,5 +49,26 @@ namespace VentasAPPEscritorio.controllers
 
             return dt.Rows[0]["url_recurso"].ToString();
         }
+
+
+        public DataTable ListarMultimediaPorCarro(int carroId)
+        {
+            string sql = $@"
+        SELECT
+            tipo,
+            titulo_recurso,
+            formato,
+            es_principal,
+            orden,
+            url_recurso
+        FROM carro_multimedia
+        WHERE carro_id = {carroId}
+        ORDER BY es_principal DESC, orden ASC;
+    ";
+
+            return db.ExecuteSelect(sql);
+        }
     }
+
+
 }
