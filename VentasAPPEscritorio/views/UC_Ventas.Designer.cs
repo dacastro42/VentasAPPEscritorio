@@ -61,6 +61,8 @@
             dgvCarros.Name = "dgvCarros";
             dgvCarros.Size = new Size(444, 211);
             dgvCarros.TabIndex = 9;
+            dgvCarros.CellContentDoubleClick += dgvCarros_CellContentDoubleClick;
+            dgvCarros.SelectionChanged += dgvCarros_SelectionChanged;
             // 
             // dgvCarrito
             // 

@@ -12,12 +12,13 @@ namespace VentasAPPEscritorio.controllers
     public class CarroController
     {
         private readonly CarroModel carroModel = new CarroModel();
+        private readonly ConnectionBD db = new ConnectionBD();
 
         public DataTable ListarCarros()
         {
-            // Aquí SOLO SQL / lógica (filtrar disponibles, ordenar, etc.)
+            
             string sql = @"
-                SELECT 
+                SELECT
                     IdC,
                     Marca,
                     Modelo,
@@ -28,6 +29,25 @@ namespace VentasAPPEscritorio.controllers
             ";
 
             return carroModel.ListarPorSql(sql);
+        }
+
+
+        public string ObtenerFotoPrincipal(int carroId)
+        {
+            string sql = $@"
+        SELECT url_recurso
+        FROM carro_multimedia
+        WHERE carro_id = {carroId}
+          AND tipo = 'IMG'
+          AND es_principal = 1
+        ORDER BY orden ASC
+        LIMIT 1;
+    ";
+
+            var dt = db.ExecuteSelect(sql);
+            if (dt.Rows.Count == 0) return null;
+
+            return dt.Rows[0]["url_recurso"].ToString();
         }
     }
 }

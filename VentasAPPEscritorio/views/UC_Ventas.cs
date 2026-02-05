@@ -202,7 +202,7 @@ namespace VentasAPPEscritorio.views
                 RecalcularTotales();
             }
         }
-        
+
         private void AjustarColumnasCarrito()
         {
             if (dgvCarrito.Columns["IdVentaDetalle"] != null) dgvCarrito.Columns["IdVentaDetalle"].Visible = false;
@@ -260,6 +260,29 @@ namespace VentasAPPEscritorio.views
         private void dgvCarrito_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void dgvCarros_SelectionChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void dgvCarros_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            int carroId = Convert.ToInt32(dgvCarros.Rows[e.RowIndex].Cells["IdC"].Value);
+
+            string nombreCarro = "";
+            if (dgvCarros.Columns.Contains("Marca") && dgvCarros.Columns.Contains("Modelo") && dgvCarros.Columns.Contains("Anio"))
+            {
+                var row = dgvCarros.Rows[e.RowIndex];
+                nombreCarro = $"{row.Cells["Marca"].Value} {row.Cells["Modelo"].Value} {row.Cells["Anio"].Value}";
+            }
+            Console.Write("datos sonnn :  " + carroId + " " + nombreCarro);
+            //Console.WriteLine("datos sonnn :  " + carroId +" "+ nombreCarro);// Console.WriteLine("la ruta es :  " + rutaCompleta);
+            var frm = new FrmCarroMultimedia(carroId, nombreCarro);
+            frm.ShowDialog(); // modal, no rompe flujo de ventas
         }
     }
 }

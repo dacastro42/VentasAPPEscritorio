@@ -12,7 +12,7 @@ namespace VentasAPPEscritorio
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new UC_Login()/*new Form1()*/ /*new UC_Vendedores()*/ /*new UC_Ventas()*/);
+            Application.Run(new /*FrmCarroMultimedia()*/UC_Login()/*new Form1()*/ /*new UC_Vendedores()*/ /*new UC_Ventas()*/);
         }
     }
 }
